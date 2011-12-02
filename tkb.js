@@ -8,8 +8,10 @@ function TKB() {
     /* data from server */
     this.roomMapVersion = -1;
     this.occupationVersion = -1;
+    this.scheduleVersion = -1;
     this.roomMap = {};
     this.occupation = {};
+    this.schedule = {};
 
     /* cached processed data from the server: */
     this.rroomMap = {};         /* pc to room look-up-table */
@@ -17,11 +19,15 @@ function TKB() {
     this.rooms = [];            /* list of rooms */
     this.maxPcsPerRoom = 1;     /* maximum number of PCs per room */
 
+    /* other */
+    this.schedTimeout = null;   /* timeout handle for schedule timeout */
+
     /* message type to handler function map */
     this.msg_map = {
         'welcome': this.msg_welcome,
         'occupation': this.msg_occupation,
         'roomMap': this.msg_roomMap,
+        'schedule': this.msg_schedule,
         'occupation_update': this.msg_occupation_update};
 }
 
@@ -46,6 +52,14 @@ TKB.prototype.run = function() {
 
 TKB.prototype.msg_welcome = function(msg) {
     /* TODO check msg.protocols and error on incompatible version  */
+};
+
+TKB.prototype.msg_schedule = function(msg) {
+    /* We received a completely new schedule; store ... */
+    this.schedule = msg.schedule;
+    this.scheduleVersion = msg.version;
+    /* ... and refresh UI */
+    this.ui_update_schedule();
 };
 
 TKB.prototype.msg_occupation = function(msg) {
@@ -114,12 +128,81 @@ TKB.prototype.ui_refresh_rooms = function() {
                         "<div class='o' /><div class='wu' />"+
                         "<div class='wx' /><div class='lu' />"+
                         "<div class='lx' /><div class='x' />"+
-                        "<div class='name'>"+room+"</div></div>");
+                        "<div class='name'>"+room+"</div>"+
+                        "<div class='sched'></div></div>");
         this.roomToDom[room] = el;
         $('#list').append(el);
     }
     /* Fill new DOM elements. */
     this.ui_update_rooms(this.rooms);
+};
+
+TKB.prototype.ui_update_schedule = function() {
+    var current_date = new Date();
+    var current_time = [current_date.getHours(), current_date.getSeconds()];
+    /* compares two time pair.  A time pair (3,23) represents the time 3:23 */
+    var timeLeq = function(x,y) {
+        return x[0] <= y[0] || (x[0] == y[0] && x[1] <= y[1]);
+    };
+    /* converts a time pair to a string */
+    var timeToStr = function(x) {
+        var minutes = x[1].toString();
+        if (minutes.length == 1)
+            minutes = '0' + minutes;
+        return x[0] + ':' + minutes;
+    };
+    /* the minimal time at which we need to refresh the schedule */
+    var min_crit_time = null;
+    /* iterate over the rooms */
+    for (var i = 0; i < this.rooms.length; i++) {
+        var room = this.rooms[i];
+        var sched = this.schedule[room];
+        if (!sched) /* there are no courses scheduled */
+            continue;
+        /* find next or current course */
+        var neigh = null;
+        var neigh_is_now = null;
+        for (var j = 0; j < sched.length; j++) {
+            if (timeLeq(sched[j][0], current_time) &&
+                    timeLeq(current_time, sched[j][1])) {
+                neigh = sched[j];
+                neigh_is_now = true;
+                break;
+            }
+            if (timeLeq(current_time, sched[j][0]) &&
+                    (neigh == null || timeLeq(sched[j][0], neigh))) {
+                neigh = sched[j];
+                neigh_is_now = false;
+            }
+        }
+        /* create the text */
+        var crit_time = null;
+        if (neigh == null) {
+            var txt = "";
+        } else if (neigh_is_now) {
+            var txt = "tot "+timeToStr(neigh[1])+" gereserveerd";
+            crit_time = neigh[1];
+        } else {
+            var txt = "vanaf "+timeToStr(neigh[0])+" gereserveerd";
+            crit_time = neigh[0];
+        }
+        if(crit_time != null && (min_crit_time == null
+                    || timeLeq(crit_time, min_crit_time)))
+            min_crit_time = crit_time;
+        /* set the text */
+        this.roomToDom[room].find('.sched').text(txt);
+    }
+    /* If there is a critical time coming up, set a timeout for it */
+    if (min_crit_time == null)
+        return;
+    /* convert min_crit_time to Date object */
+    var min_crit_time_date = new Date(current_date.getYear(),
+                            current_date.getMonth(), current_date.getDay(),
+                                min_crit_time[0], min_crit_time[1]);
+    if (this.schedTimeout != null)
+        clearTimeout(this.schedTimeout);
+    this.schedTimeout = setTimeout(this.ui_update_schedule,
+                            min_crit_time_date - current_date);
 };
 
 TKB.prototype.ui_update_rooms = function(rooms) {
