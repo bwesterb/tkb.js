@@ -142,7 +142,9 @@ TKB.prototype.ui_update_schedule = function() {
     var current_time = [current_date.getHours(), current_date.getSeconds()];
     /* compares two time pair.  A time pair (3,23) represents the time 3:23 */
     var timeLeq = function(x,y) {
-        return x[0] <= y[0] || (x[0] == y[0] && x[1] <= y[1]);
+        if (x[0] != y[0])
+            return x[0] <= y[0];
+        return x[1] <= y[1];
     };
     /* converts a time pair to a string */
     var timeToStr = function(x) {
