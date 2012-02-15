@@ -21,14 +21,14 @@ body {
   color: white;
   background-color: #be311a;
   position: relative; }
-  #header h1, #header h2 {
+  #header > h1, #header > h2 {
     font-weight: normal; }
-  #header h1 {
+  #header > h1 {
     font-size: 24pt; }
-  #header h2 {
+  #header > h2 {
     font-size: 18pt;
     font-style: italic; }
-  #header #logo {
+  #header > #logo {
     position: absolute;
     top: 10px;
     right: 10px;
