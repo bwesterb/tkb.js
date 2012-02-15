@@ -1,52 +1,41 @@
 /* vim: set et sta bs=2 sw=4 :*/
 body {
-    font-family: verdana;
-}
+  font-family: verdana; }
 
 #list {
-    width: 100%;
-}
-
-#list > div {
+  width: 100%; }
+  #list > div {
     position: relative;
-    height: 40px;
-}
-
-#list > div > div {
-    position: absolute;
-    top: 0;
-}
-
-#list > div > .name {
-    width: 100%;
-    text-align: center;
-}
-
-#list > div > .f  { background-color: green; }
-#list > div > .u  { background-color: red; }
-#list > div > .wf { background-color: blue; }
-#list > div > .lf { background-color: yellow; }
-#list > div > .o  { background-color: black; }
-#list > div > .wu { background-color: blue; }
-#list > div > .wx { background-color: darkblue; }
-#list > div > .lu { background-color: yellow; }
-#list > div > .lx { background-color: orange; }
-#list > div > .x  { background-color: gray; }
-
-#list > div > .f,
-#list > div > .u {
-    height: 20px;
-    top: 0px;
-}
-
-#list > div > .wf,
-#list > div > .lf,
-#list > div > .o,
-#list > div > .wu,
-#list > div > .wx,
-#list > div > .lu,
-#list > div > .lx,
-#list > div > .x {
-    top: 20px;
-    height: 3px;
-}
+    height: 40px; }
+    #list > div > div {
+      position: absolute;
+      top: 0; }
+    #list > div > .name {
+      width: 100%;
+      text-align: center; }
+    #list > div > .f {
+      background-color: green; }
+    #list > div > .u {
+      background-color: red; }
+    #list > div > .wf {
+      background-color: blue; }
+    #list > div > .lf {
+      background-color: yellow; }
+    #list > div > .o {
+      background-color: black; }
+    #list > div > .wu {
+      background-color: blue; }
+    #list > div > .wx {
+      background-color: darkblue; }
+    #list > div > .lu {
+      background-color: yellow; }
+    #list > div > .lx {
+      background-color: orange; }
+    #list > div > .x {
+      background-color: gray; }
+    #list > div > .f, #list > div > .u {
+      height: 20px;
+      top: 0px; }
+    #list > div > .wf, #list > div > .lf, #list > div > .o, #list > div > .wu, #list > div > .wx, #list > div > .lu, #list > div > .lx, #list > div > .x {
+      top: 20px;
+      height: 3px; }

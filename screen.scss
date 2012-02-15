@@ -1,0 +1,44 @@
+/* vim: set et sta bs=2 sw=4 :*/
+body {
+    font-family: verdana;
+}
+
+#list {
+    width: 100%;
+
+    > div {
+        position: relative;
+        height: 40px;
+
+        > div {
+            position: absolute;
+            top: 0;
+        }
+        
+        > .name {
+            width: 100%;
+            text-align: center;
+        }
+
+        > .f  { background-color: green; }
+        > .u  { background-color: red; }
+        > .wf { background-color: blue; }
+        > .lf { background-color: yellow; }
+        > .o  { background-color: black; }
+        > .wu { background-color: blue; }
+        > .wx { background-color: darkblue; }
+        > .lu { background-color: yellow; }
+        > .lx { background-color: orange; }
+        > .x  { background-color: gray; }
+
+        > .f, > .u {
+            height: 20px;
+            top: 0px;
+        }
+
+        > .wf, > .lf, > .o, > .wu, > .wx, > .lu, > .lx, > .x {
+            top: 20px;
+            height: 3px;
+        }
+    }
+}
