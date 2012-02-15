@@ -47,7 +47,14 @@ body {
 
     #logo {
         position: absolute;
-        right: 0;
+        top: 10px;
+        right: 10px;
+        width: 345px;
+        height: 60px;
+        background: {
+            repeat: no-repeat;
+            image: url('ru.png');
+        }
     }
 }
 

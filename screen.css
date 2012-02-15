@@ -30,7 +30,12 @@ body {
     font-style: italic; }
   #header #logo {
     position: absolute;
-    right: 0; }
+    top: 10px;
+    right: 10px;
+    width: 345px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-image: url("ru.png"); }
 
 /* The main stuff */
 #list {
