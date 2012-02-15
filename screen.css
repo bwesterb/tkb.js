@@ -1,42 +1,118 @@
 /* vim: set et sta bs=2 sw=4 :*/
 /* This is SCSS.  See sass-lang.com */
-body {
-  font-family: verdana; }
+/* variables 
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* colours */
+/* van www.ru.nl/huisstijl/basiselementen/kleuren/ */
+/* widths of columns */
+/* Some small resets */
+*, body {
+  padding: 0;
+  margin: 0; }
 
+/* Ground */
+body {
+  /* TODO Is Helvetica Neue installed? */
+  font-family: arial; }
+
+/* The header */
+#header {
+  padding: 10px;
+  color: white;
+  background-color: #be311a;
+  position: relative; }
+  #header h1, #header h2 {
+    font-weight: normal; }
+  #header h1 {
+    font-size: 24pt; }
+  #header h2 {
+    font-size: 18pt;
+    font-style: italic; }
+  #header #logo {
+    position: absolute;
+    right: 0; }
+
+/* The main stuff */
 #list {
-  width: 100%; }
-  #list > div {
-    position: relative;
-    height: 40px; }
-    #list > div > div {
+  padding: 20px;
+  /* The header of the table */
+  /* The actual rows of the table */ }
+  #list > .header {
+    height: 25px;
+    position: relative; }
+    #list > .header > div {
       position: absolute;
-      top: 0; }
-    #list > div > .name {
-      width: 100%;
-      text-align: center; }
-    #list > div > .f {
-      background-color: green; }
-    #list > div > .u {
-      background-color: red; }
-    #list > div > .wf {
-      background-color: blue; }
-    #list > div > .lf {
-      background-color: yellow; }
-    #list > div > .o {
-      background-color: black; }
-    #list > div > .wu {
-      background-color: blue; }
-    #list > div > .wx {
-      background-color: darkblue; }
-    #list > div > .lu {
-      background-color: yellow; }
-    #list > div > .lx {
-      background-color: orange; }
-    #list > div > .x {
-      background-color: gray; }
-    #list > div > .f, #list > div > .u {
-      height: 20px;
-      top: 0px; }
-    #list > div > .wf, #list > div > .lf, #list > div > .o, #list > div > .wu, #list > div > .wx, #list > div > .lu, #list > div > .lx, #list > div > .x {
-      top: 20px;
-      height: 3px; }
+      text-align: center;
+      top: 0;
+      font-weight: bold;
+      font-size: 14pt; }
+    #list > .header > .name {
+      width: 150px; }
+    #list > .header > .bar {
+      width: 100%; }
+    #list > .header > .count {
+      right: 0;
+      width: 100px; }
+  #list > .rows {
+    position: relative;
+    /* A row in the table */ }
+    #list > .rows > div {
+      position: relative;
+      height: 55px;
+      /* background colors */
+      /* name (left) cell */
+      /* count (right) cell */
+      /* the main bar (center) cell */ }
+      #list > .rows > div.odd {
+        background-color: #e0e0e0; }
+      #list > .rows > div.even {
+        background-color: #f5f5f5; }
+      #list > .rows > div > .name, #list > .rows > div > .count {
+        position: absolute;
+        font-size: 18pt;
+        top: 14px;
+        text-align: center; }
+      #list > .rows > div > .name {
+        width: 150px; }
+      #list > .rows > div > .count {
+        width: 100px;
+        right: 0; }
+      #list > .rows > div > .bar {
+        padding-left: 150px;
+        padding-right: 100px;
+        padding-top: 9px; }
+        #list > .rows > div > .bar > div {
+          position: relative;
+          /* all bar bits */
+          /* the big bits */
+          /* the small bits */
+          /* color per bit */ }
+          #list > .rows > div > .bar > div > div {
+            position: absolute; }
+          #list > .rows > div > .bar > div > .f, #list > .rows > div > .bar > div > .u {
+            height: 36px;
+            top: 0px;
+            background-repeat: repeat-x; }
+          #list > .rows > div > .bar > div > .wf, #list > .rows > div > .bar > div > .lf, #list > .rows > div > .bar > div > .o, #list > .rows > div > .bar > div > .wu, #list > .rows > div > .bar > div > .wx, #list > .rows > div > .bar > div > .lu, #list > .rows > div > .bar > div > .lx, #list > .rows > div > .bar > div > .x {
+            top: 36px;
+            /* height: 1px; */ }
+          #list > .rows > div > .bar > div > .f {
+            background-image: url("bar-green.png"); }
+          #list > .rows > div > .bar > div > .u {
+            background-image: url("bar-red.png"); }
+          #list > .rows > div > .bar > div > .wf {
+            background-color: blue; }
+          #list > .rows > div > .bar > div > .lf {
+            background-color: yellow; }
+          #list > .rows > div > .bar > div > .o {
+            background-color: black; }
+          #list > .rows > div > .bar > div > .wu {
+            background-color: blue; }
+          #list > .rows > div > .bar > div > .wx {
+            background-color: darkblue; }
+          #list > .rows > div > .bar > div > .lu {
+            background-color: yellow; }
+          #list > .rows > div > .bar > div > .lx {
+            background-color: orange; }
+          #list > .rows > div > .bar > div > .x {
+            background-color: gray; }

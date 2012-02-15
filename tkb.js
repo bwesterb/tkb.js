@@ -121,18 +121,23 @@ TKB.prototype.msg_roomMap = function(msg) {
 TKB.prototype.ui_refresh_rooms = function() {
     /* Refreshes list of rooms: clears all DOM elements and create new. */
     this.roomToDom = {};
-    $('#list').empty();
+    $('#list > .rows').empty();
+    var odd = true;
     for (var i = 0; i < this.rooms.length; i++) {
         var room = this.rooms[i];
-        var el = $("<div><div class='wf' /><div class='lf' />"+
+        var odd_or_even = odd ? 'odd' : 'even';
+        var el = $("<div class='"+odd_or_even+"'><div class='bar'><div>"+
+                        "<div class='wf' /><div class='lf' />"+
                         "<div class='f' /><div class='u' />"+
                         "<div class='o' /><div class='wu' />"+
                         "<div class='wx' /><div class='lu' />"+
-                        "<div class='lx' /><div class='x' />"+
+                        "<div class='lx' /><div class='x' /></div></div>"+
                         "<div class='name'>"+room+"</div>"+
+                        "<div class='count'></div>"+
                         "<div class='sched'></div></div>");
         this.roomToDom[room] = el;
-        $('#list').append(el);
+        $('#list > .rows').append(el);
+        odd = !odd;
     }
     /* Fill new DOM elements. */
     this.ui_update_rooms(this.rooms);
@@ -223,7 +228,7 @@ TKB.prototype.ui_update_rooms = function(rooms) {
         var free = lut.wf + lut.lf + lut.o;
         var used = lut.wu + lut.wx + lut.lu + lut.lx + lut.x;
         var tick = 100.0 / this.maxPcsPerRoom;
-        /* move and update elements */
+        /* update .bar */
         el.find('.f').animate({'width': (tick * free) + '%'});
         el.find('.u').animate({'width': (tick * used) + '%',
                                'left': (tick * free) + '%'});
@@ -235,6 +240,8 @@ TKB.prototype.ui_update_rooms = function(rooms) {
                                         'left': (tick * left) + '%'});
             left += lut[state];
         }
+        /* update .count */
+        el.find('.count').text(free + '/' + (used + free));
     }
 };
 
