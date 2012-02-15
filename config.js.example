@@ -1,0 +1,4 @@
+/* vim: set et sta bs=2 sw=4 ft=javascript :*/
+var tkbConfig = {
+    'host': 'tk.science.ru.nl'
+};
