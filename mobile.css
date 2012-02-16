@@ -1,0 +1,37 @@
+#list > div.header {
+    display: none;
+}
+
+#header > h2 {
+    font-size: 17pt;
+}
+
+#header > h1 {
+    font-size: 22pt;
+}
+
+#header > #logo {
+    background: url('ru-mobile.png') right no-repeat;
+}
+
+#list > .rows > div {
+    height: 95px;
+}
+
+#list > .rows > div > .bar {
+    padding-left: 20px;
+    padding-top: 40px;
+}
+
+#list > .rows > div > .name {
+    position: absolute;
+    width: auto;
+    left: 20px;
+}
+
+#list > .rows > div > .count {
+    position: absolute;
+    top: 37px;
+    font-size: 15pt;
+    color: #444;
+}
