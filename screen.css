@@ -64,7 +64,7 @@ body {
     /* A row in the table */ }
     #list > .rows > div {
       position: relative;
-      height: 55px;
+      height: 54px;
       /* background colors */
       /* name (left) cell */
       /* count (right) cell */
