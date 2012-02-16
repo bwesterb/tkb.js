@@ -1,7 +1,12 @@
 /* vim: set et sta bs=2 sw=4 :*/
 /* This is SCSS.  See sass-lang.com */
 #header {
+  /* decrease header font-size */
   /* change header logo */ }
+  #header > h1 {
+    font-size: 16pt; }
+  #header > h2 {
+    font-size: 14pt; }
   #header > #logo {
     width: 49px;
     background-image: url("ru-mobile.png"); }
@@ -14,22 +19,26 @@
     display: none; }
   #list > .rows > div {
     /* make rows taller */
-    height: 85px;
+    height: 72px;
     /* adjust padding of the main bar */
     /* adjust positioning of the name cell */
-    /* ... and the count cell */ }
+    /* ... and the count cell */
+    /* adjust font-sizes */ }
     #list > .rows > div > .bar {
       position: absolute;
-      top: 35px;
+      top: 28px;
       left: 0;
-      right: 100px;
-      padding-left: 20px;
+      right: 70px;
+      padding-left: 6px;
       padding-right: 0;
       padding-top: 0;
       padding-bottom: 0; }
     #list > .rows > div > .name {
       width: auto;
-      left: 20px;
-      top: 5px; }
+      left: 6px;
+      top: 2px; }
     #list > .rows > div > .count {
-      top: 40px; }
+      top: 33px;
+      width: 70px; }
+    #list > .rows > div > .name, #list > .rows > div > .count {
+      font-size: 16pt; }
