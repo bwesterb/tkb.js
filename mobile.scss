@@ -1,0 +1,54 @@
+/* vim: set et sta bs=2 sw=4 :*/
+/* This is SCSS.  See sass-lang.com */
+
+#header {
+    /* change header font sizes */
+    > h1 {
+        font-size: 22pt;
+    }
+
+    > h2 {
+        font-size: 17pt;
+    }
+
+    /* change header logo */
+    > #logo {
+        width: 49px;
+        background-image: url('ru-mobile.png');
+    }
+}
+
+#list {
+    /* hide the table header */
+    > .header {
+        display: none;
+    }
+
+    > .rows {
+        > div {
+            /* make rows taller */
+            height: 95px;
+
+            /* adjust padding of the main bar */
+            > .bar {
+                padding: {
+                    left: 20px;
+                    top: 40px;
+                }
+            }
+
+            /* adjust positioning of the name cell */
+            > .name {
+                width: auto;
+                left: 20px;
+            }
+
+            /* ... and the count cell */
+            > .count {
+                top: 37px;
+                font-size: 15pt;
+                color: #444;
+            }
+        }
+    }
+}
