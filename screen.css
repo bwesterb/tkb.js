@@ -20,7 +20,8 @@ body {
   padding: 10px;
   color: white;
   background-color: #be311a;
-  position: relative; }
+  position: relative;
+  min-height: 60px; }
   #header > h1, #header > h2 {
     font-weight: normal; }
   #header > h1 {
