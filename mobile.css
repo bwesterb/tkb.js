@@ -7,20 +7,29 @@
     background-image: url("ru-mobile.png"); }
 
 #list {
+  /* minimize padding */
+  padding: 5px;
   /* hide the table header */ }
   #list > .header {
     display: none; }
   #list > .rows > div {
     /* make rows taller */
-    height: 95px;
+    height: 85px;
     /* adjust padding of the main bar */
     /* adjust positioning of the name cell */
     /* ... and the count cell */ }
     #list > .rows > div > .bar {
+      position: absolute;
+      top: 35px;
+      left: 0;
+      right: 100px;
       padding-left: 20px;
-      padding-top: 40px; }
+      padding-right: 0;
+      padding-top: 0;
+      padding-bottom: 0; }
     #list > .rows > div > .name {
       width: auto;
-      left: 20px; }
+      left: 20px;
+      top: 5px; }
     #list > .rows > div > .count {
-      top: 37px; }
+      top: 40px; }

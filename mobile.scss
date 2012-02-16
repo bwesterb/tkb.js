@@ -10,6 +10,9 @@
 }
 
 #list {
+    /* minimize padding */
+    padding: 5px;
+
     /* hide the table header */
     > .header {
         display: none;
@@ -18,13 +21,19 @@
     > .rows {
         > div {
             /* make rows taller */
-            height: 95px;
+            height: 85px;
 
             /* adjust padding of the main bar */
             > .bar {
+                position: absolute;
+                top: 35px;
+                left: 0;
+                right: 100px;
                 padding: {
                     left: 20px;
-                    top: 40px;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
                 }
             }
 
@@ -32,11 +41,12 @@
             > .name {
                 width: auto;
                 left: 20px;
+                top: 5px;
             }
 
             /* ... and the count cell */
             > .count {
-                top: 37px;
+                top: 40px;
             }
         }
     }
