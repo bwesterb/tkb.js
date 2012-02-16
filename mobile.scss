@@ -13,7 +13,10 @@
     /* change header logo */
     > #logo {
         width: 49px;
-        background-image: url('ru-mobile.png');
+        background: {
+           image: url('ru-mobile.png');
+           size: 47px 60px; /* required double DPI devices*/
+       }
     }
 }
 
@@ -29,12 +32,12 @@
     > .rows {
         > div {
             /* make rows taller */
-            height: 72px;
+            height: 50px;
 
             /* adjust padding of the main bar */
             > .bar {
                 position: absolute;
-                top: 28px;
+                top: 25px;
                 left: 0;
                 right: 70px;
                 padding: {
@@ -42,6 +45,10 @@
                     right: 0;
                     top: 0;
                     bottom: 0;
+                }
+
+                .f, .u {
+                    background-size: 1px 18px; /* for high DPI devices */
                 }
             }
 
@@ -54,13 +61,13 @@
 
             /* ... and the count cell */
             > .count {
-                top: 33px;
+                top: 23px;
                 width: 70px;
             }
 
             /* adjust font-sizes */
             > .name, > .count {
-                font-size: 16pt;
+                font-size: 14pt;
             }
         }
     }

@@ -9,7 +9,9 @@
     font-size: 14pt; }
   #header > #logo {
     width: 49px;
-    background-image: url("ru-mobile.png"); }
+    background-image: url("ru-mobile.png");
+    background-size: 47px 60px;
+    /* required double DPI devices*/ }
 
 #list {
   /* minimize padding */
@@ -19,26 +21,29 @@
     display: none; }
   #list > .rows > div {
     /* make rows taller */
-    height: 72px;
+    height: 50px;
     /* adjust padding of the main bar */
     /* adjust positioning of the name cell */
     /* ... and the count cell */
     /* adjust font-sizes */ }
     #list > .rows > div > .bar {
       position: absolute;
-      top: 28px;
+      top: 25px;
       left: 0;
       right: 70px;
       padding-left: 6px;
       padding-right: 0;
       padding-top: 0;
       padding-bottom: 0; }
+      #list > .rows > div > .bar .f, #list > .rows > div > .bar .u {
+        background-size: 1px 18px;
+        /* for high DPI devices */ }
     #list > .rows > div > .name {
       width: auto;
       left: 6px;
       top: 2px; }
     #list > .rows > div > .count {
-      top: 33px;
+      top: 23px;
       width: 70px; }
     #list > .rows > div > .name, #list > .rows > div > .count {
-      font-size: 16pt; }
+      font-size: 14pt; }
