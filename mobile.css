@@ -1,12 +1,7 @@
 /* vim: set et sta bs=2 sw=4 :*/
 /* This is SCSS.  See sass-lang.com */
 #header {
-  /* change header font sizes */
   /* change header logo */ }
-  #header > h1 {
-    font-size: 22pt; }
-  #header > h2 {
-    font-size: 17pt; }
   #header > #logo {
     width: 49px;
     background-image: url("ru-mobile.png"); }
@@ -28,5 +23,4 @@
       width: auto;
       left: 20px; }
     #list > .rows > div > .count {
-      top: 37px;
-      font-size: 15pt; }
+      top: 37px; }
