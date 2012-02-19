@@ -70,6 +70,7 @@ body {
       height: 54px;
       /* background colors */
       /* name (left) cell */
+      /* schedule text */
       /* count (right) cell */
       /* the main bar (center) cell */ }
       #list > .rows > div.odd {
@@ -83,6 +84,12 @@ body {
         text-align: center; }
       #list > .rows > div > .name {
         width: 150px; }
+      #list > .rows > div > .sched {
+        position: absolute;
+        left: 160px;
+        font-size: 14pt;
+        top: 16px;
+        font-style: italic; }
       #list > .rows > div > .count {
         width: 100px;
         right: 0; }
@@ -92,10 +99,18 @@ body {
         padding-top: 9px; }
         #list > .rows > div > .bar > div {
           position: relative;
+          /* shade if currently reserved ... */
+          /* ... or reserved later on */
           /* all bar bits */
           /* the big bits */
           /* the small bits */
           /* color per bit */ }
+          #list > .rows > div > .bar > div.resNow {
+            background-color: black;
+            opacity: 0.30; }
+          #list > .rows > div > .bar > div.resLater {
+            background-color: black;
+            opacity: 0.8; }
           #list > .rows > div > .bar > div > div {
             position: absolute; }
           #list > .rows > div > .bar > div > .f, #list > .rows > div > .bar > div > .u {

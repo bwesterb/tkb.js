@@ -25,6 +25,7 @@
     /* adjust padding of the main bar */
     /* adjust positioning of the name cell */
     /* ... and the count cell */
+    /* ... and the `gereserveerd tot/vanaf' text */
     /* adjust font-sizes */ }
     #list > .rows > div > .bar {
       position: absolute;
@@ -45,5 +46,9 @@
     #list > .rows > div > .count {
       top: 23px;
       width: 70px; }
+    #list > .rows > div > .sched {
+      left: 100px;
+      top: 5px;
+      font-size: 12pt; }
     #list > .rows > div > .name, #list > .rows > div > .count {
       font-size: 14pt; }

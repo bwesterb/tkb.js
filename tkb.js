@@ -187,11 +187,14 @@ TKB.prototype.ui_update_schedule = function() {
         var crit_time = null;
         if (neigh == null) {
             var txt = "";
+            var klass = null;
         } else if (neigh_is_now) {
-            var txt = "tot "+timeToStr(neigh[1])+" gereserveerd";
+            var txt = "gereserveerd tot "+timeToStr(neigh[1]);
+            var klass = 'resNow';
             crit_time = neigh[1];
         } else {
-            var txt = "vanaf "+timeToStr(neigh[0])+" gereserveerd";
+            var txt = "gereserveerd vanaf  "+timeToStr(neigh[0]);
+            var klass = 'resLater';
             crit_time = neigh[0];
         }
         if(crit_time != null && (min_crit_time == null
@@ -199,6 +202,11 @@ TKB.prototype.ui_update_schedule = function() {
             min_crit_time = crit_time;
         /* set the text */
         this.roomToDom[room].find('.sched').text(txt);
+        /* set class */
+        var barInnerDiv = this.roomToDom[room].find('.bar > div');
+        barInnerDiv.removeClass();
+        if (klass)
+            barInnerDiv.addClass(klass);
     }
     /* If there is a critical time coming up, set a timeout for it */
     if (min_crit_time == null)

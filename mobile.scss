@@ -65,6 +65,13 @@
                 width: 70px;
             }
 
+            /* ... and the `gereserveerd tot/vanaf' text */
+            > .sched {
+                left: 100px;
+                top: 5px;
+                font-size: 12pt;
+            }
+
             /* adjust font-sizes */
             > .name, > .count {
                 font-size: 14pt;

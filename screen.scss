@@ -122,6 +122,15 @@ body {
                 width: $cw_name;
             }
 
+            /* schedule text */
+            > .sched {
+                position: absolute;
+                left: $cw_name + 10px;
+                font-size: 14pt;
+                top: 16px;
+                font-style: italic;
+            }
+
             /* count (right) cell */
             > .count {
                 width: $cw_count;
@@ -136,6 +145,17 @@ body {
 
                 > div {
                     position: relative;
+
+                    /* shade if currently reserved ... */
+                    &.resNow {
+                        background-color: black;
+                        opacity: 0.30;
+                    }
+                    /* ... or reserved later on */
+                    &.resLater {
+                        background-color: black;
+                        opacity: 0.8;
+                    }
 
                     /* all bar bits */
                     > div {
