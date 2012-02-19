@@ -144,6 +144,7 @@ TKB.prototype.ui_refresh_rooms = function() {
 };
 
 TKB.prototype.ui_update_schedule = function() {
+    var that = this;
     var current_date = new Date();
     var current_time = [current_date.getHours(), current_date.getSeconds()];
     /* compares two time pair.  A time pair (3,23) represents the time 3:23 */
@@ -212,12 +213,13 @@ TKB.prototype.ui_update_schedule = function() {
     if (min_crit_time == null)
         return;
     /* convert min_crit_time to Date object */
-    var min_crit_time_date = new Date(current_date.getYear(),
-                            current_date.getMonth(), current_date.getDay(),
+    var min_crit_time_date = new Date(current_date.getUTCFullYear(),
+                            current_date.getMonth(), current_date.getDate(),
                                 min_crit_time[0], min_crit_time[1]);
     if (this.schedTimeout != null)
         clearTimeout(this.schedTimeout);
-    this.schedTimeout = setTimeout(this.ui_update_schedule,
+    this.schedTimeout = setTimeout(
+                    function() { that.ui_update_schedule(); },
                             min_crit_time_date - current_date);
 };
 
