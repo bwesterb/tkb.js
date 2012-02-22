@@ -97,6 +97,13 @@ body {
     > .rows {
         position: relative;
 
+        /* the loading indicator */
+        .loading {
+            width: 100%;
+            background: url("loading.gif") center center no-repeat;
+            background-size: 21px 21px;
+        }
+
         /* A row in the table */
         > div {
             position: relative;

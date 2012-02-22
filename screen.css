@@ -64,7 +64,12 @@ body {
       width: 100px; }
   #list > .rows {
     position: relative;
+    /* the loading indicator */
     /* A row in the table */ }
+    #list > .rows .loading {
+      width: 100%;
+      background: url("loading.gif") center center no-repeat;
+      background-size: 21px 21px; }
     #list > .rows > div {
       position: relative;
       height: 54px;
