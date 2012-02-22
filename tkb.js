@@ -256,8 +256,13 @@ TKB.prototype.ui_update_rooms = function(rooms) {
 };
 
 $(document).ready(function(){
-    tkb = new TKB();
-    tkb.run();
+    /* This little `timeout' will hide the throbber of doom on Chrome
+     * (sadly not on MobileSafari) and allow the `loading ...' GIF
+     * to animate a bit */
+    setTimeout(function(){
+        tkb = new TKB();
+        tkb.run();
+    }, 0);
 });
 
 })();
