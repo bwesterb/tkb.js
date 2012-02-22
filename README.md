@@ -16,6 +16,8 @@ Installing
 
 Changelog
 ---------
+* Third release
+  * ...
 * Second release
   * Great new design thanks to [Judith](http://jd7h.com)
   * Mobile support thanks to [Ruben](https://github.com/rnijveld)
