@@ -33,10 +33,11 @@ channel.prototype._request = function(interrupt) {
     var that = this;
     $.ajax({'url': url,
         'type': 'POST',
+        'jsonp': 'c',
         'data': {
             'm': JSON.stringify(data)
         },
-        'dataType': 'json',
+        'dataType': 'jsonp',
         'error': function(xhr, textStatus, errorThrown) {
             that.on_error(xhr, textStatus, errorThrown);
         }, 'success': function(data, textStatus, xhr) {
