@@ -181,12 +181,6 @@ body {
                         }
                     }
 
-                    /* the small bits */
-                    > .wf, > .lf, > .o, > .wu, > .wx, > .lu, > .lx, > .x {
-                        top: 36px;
-                        /* height: 1px; */
-                    }
-
                     /* color per bit */
                     > .f  {
                         background-color: $bar_green;
@@ -196,15 +190,6 @@ body {
                         background-color: $bar_red;
                         > div { background-image: url('bar-red.png'); }
                     }
-
-                    > .wf { background-color: blue; }
-                    > .lf { background-color: yellow; }
-                    > .o  { background-color: black; }
-                    > .wu { background-color: blue; }
-                    > .wx { background-color: darkblue; }
-                    > .lu { background-color: yellow; }
-                    > .lx { background-color: orange; }
-                    > .x  { background-color: gray; }
                 }
             }
         }
