@@ -68,7 +68,7 @@ TKB.prototype.msg_occupation = function(msg) {
     this.occupation = msg.occupation;
     this.occupationVersion = msg.version;
     /* ... and refresh UI */
-    this.ui_update_rooms(this.rooms);
+    this.ui_update_rooms(this.rooms, false);
 };
 
 TKB.prototype.msg_occupation_update = function(msg) {
@@ -92,7 +92,7 @@ TKB.prototype.msg_occupation_update = function(msg) {
         this.occupation[pc] = msg.update[pc];
     }
     /* ... and update affected rooms in the UI */
-    this.ui_update_rooms(rooms);
+    this.ui_update_rooms(rooms, true);
 };
 
 TKB.prototype.msg_roomMap = function(msg) {
@@ -141,7 +141,7 @@ TKB.prototype.ui_refresh_rooms = function() {
         odd = !odd;
     }
     /* Fill new DOM elements. */
-    this.ui_update_rooms(this.rooms);
+    this.ui_update_rooms(this.rooms, false);
 };
 
 TKB.prototype.ui_update_schedule = function() {
@@ -224,7 +224,7 @@ TKB.prototype.ui_update_schedule = function() {
                             min_crit_time_date - current_date);
 };
 
-TKB.prototype.ui_update_rooms = function(rooms) {
+TKB.prototype.ui_update_rooms = function(rooms, effects) {
     /* Update given rooms */
     for (var i = 0; i < rooms.length; i++) {
         var room = rooms[i];
@@ -240,9 +240,16 @@ TKB.prototype.ui_update_rooms = function(rooms) {
         var used = lut.wu + lut.wx + lut.lu + lut.lx + lut.x;
         var tick = 100.0 / this.maxPcsPerRoom;
         /* update .bar */
-        el.find('.f').animate({'width': (tick * free) + '%'});
-        el.find('.u').animate({'width': (tick * used) + '%',
-                               'left': (tick * free) + '%'});
+        var mod_f = {'width': (tick * free) + '%'};
+        var mod_u = {'width': (tick * used) + '%',
+                     'left': (tick * free) + '%'};
+        if(effects) {
+            el.find('.f').animate(mod_f);
+            el.find('.u').animate(mod_u);
+        } else {
+            el.find('.f').css(mod_f);
+            el.find('.u').css(mod_u);
+        }
         var left = 0.0;
         var states = ['wf', 'lf', 'o', 'wu', 'wx', 'lu', 'lx', 'x'];
         for  (var s = 0; s < states.length; s++) {
