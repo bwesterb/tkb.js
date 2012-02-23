@@ -260,6 +260,8 @@ TKB.prototype.ui_update_rooms = function(rooms, effects) {
         }
         /* update .count */
         el.find('.count').text(free + '/' + (used + free));
+        if (effects)
+            el.stop(true,true,true).effect('highlight', {}, 1000);
     }
 };
 
