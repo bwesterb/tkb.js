@@ -20,10 +20,10 @@ Changelog
   * Highlights on updates
   * Fixed some animation glitches
   * Increased usability on smartphones:
-    * A solid background is shown when the gradient image has not
-      been loaded yet.
-    * Disabled slow animations on pageload
-    * Hide statusbar on MobileSafari
+     * A solid background is shown when the gradient image has not
+       been loaded yet.
+     * Disabled slow animations on pageload
+     * Hide statusbar on MobileSafari
 * Third release
   * Compatibility with older browsers (in particular Firefox 2/3)
 * Second release
