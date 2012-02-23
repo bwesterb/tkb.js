@@ -8,6 +8,8 @@
 $unired: #be311a; /* van www.ru.nl/huisstijl/basiselementen/kleuren/ */
 $midgray: #e0e0e0;
 $lightgray: #f5f5f5;
+$bar_red: #be311a;
+$bar_green: #118d01;
 
 /* widths of columns */
 $cw_name: 150px;
@@ -171,9 +173,12 @@ body {
 
                     /* the big bits */
                     > .f, > .u {
-                        height: 36px;
                         top: 0px;
-                        background-repeat: repeat-x;
+
+                        > div {
+                            background-repeat: repeat-x;
+                            height: 36px;
+                        }
                     }
 
                     /* the small bits */
@@ -183,8 +188,14 @@ body {
                     }
 
                     /* color per bit */
-                    > .f  { background-image: url('bar-green.png'); }
-                    > .u  { background-image: url('bar-red.png'); }
+                    > .f  {
+                        background-color: $bar_green;
+                        > div { background-image: url('bar-green.png'); }
+                    }
+                    > .u  {
+                        background-color: $bar_red;
+                        > div { background-image: url('bar-red.png'); }
+                    }
 
                     > .wf { background-color: blue; }
                     > .lf { background-color: yellow; }

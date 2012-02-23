@@ -36,9 +36,9 @@
       padding-right: 0;
       padding-top: 0;
       padding-bottom: 0; }
-      #list > .rows > div > .bar .f, #list > .rows > div > .bar .u {
-        background-size: 1px 18px;
+      #list > .rows > div > .bar > div > .f > div, #list > .rows > div > .bar > div > .u > div {
         /* for high DPI devices */
+        background-size: 1px 18px;
         height: 18px; }
     #list > .rows > div > .name {
       width: auto;

@@ -128,7 +128,8 @@ TKB.prototype.ui_refresh_rooms = function() {
         var odd_or_even = odd ? 'odd' : 'even';
         var el = $("<div class='"+odd_or_even+"'><div class='bar'><div>"+
                         "<div class='wf' /><div class='lf' />"+
-                        "<div class='f' /><div class='u' />"+
+                        "<div class='f'><div></div></div>"+
+                        "<div class='u'><div></div></div>"+
                         "<div class='o' /><div class='wu' />"+
                         "<div class='wx' /><div class='lu' />"+
                         "<div class='lx' /><div class='x' /></div></div>"+

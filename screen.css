@@ -119,16 +119,21 @@ body {
           #list > .rows > div > .bar > div > div {
             position: absolute; }
           #list > .rows > div > .bar > div > .f, #list > .rows > div > .bar > div > .u {
-            height: 36px;
-            top: 0px;
-            background-repeat: repeat-x; }
+            top: 0px; }
+            #list > .rows > div > .bar > div > .f > div, #list > .rows > div > .bar > div > .u > div {
+              background-repeat: repeat-x;
+              height: 36px; }
           #list > .rows > div > .bar > div > .wf, #list > .rows > div > .bar > div > .lf, #list > .rows > div > .bar > div > .o, #list > .rows > div > .bar > div > .wu, #list > .rows > div > .bar > div > .wx, #list > .rows > div > .bar > div > .lu, #list > .rows > div > .bar > div > .lx, #list > .rows > div > .bar > div > .x {
             top: 36px;
             /* height: 1px; */ }
           #list > .rows > div > .bar > div > .f {
-            background-image: url("bar-green.png"); }
+            background-color: #118d01; }
+            #list > .rows > div > .bar > div > .f > div {
+              background-image: url("bar-green.png"); }
           #list > .rows > div > .bar > div > .u {
-            background-image: url("bar-red.png"); }
+            background-color: #be311a; }
+            #list > .rows > div > .bar > div > .u > div {
+              background-image: url("bar-red.png"); }
           #list > .rows > div > .bar > div > .wf {
             background-color: blue; }
           #list > .rows > div > .bar > div > .lf {

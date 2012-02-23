@@ -47,9 +47,14 @@
                     bottom: 0;
                 }
 
-                .f, .u {
-                    background-size: 1px 18px; /* for high DPI devices */
-                    height: 18px;
+                > div {
+                    > .f, > .u {
+                        > div {
+                            /* for high DPI devices */
+                            background-size: 1px 18px;
+                            height: 18px;
+                        }
+                    }
                 }
             }
 
