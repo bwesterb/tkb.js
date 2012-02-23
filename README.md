@@ -16,8 +16,11 @@ Installing
 
 Changelog
 ---------
-* Third release
+* Fourth release
+  * Increased usability on smartphones
   * ...
+* Third release
+  * Compatibility with older browsers (in particular Firefox 2/3)
 * Second release
   * Great new design thanks to [Judith](http://jd7h.com)
   * Mobile support thanks to [Ruben](https://github.com/rnijveld)
