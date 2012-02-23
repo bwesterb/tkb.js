@@ -1,4 +1,4 @@
-/* vim: set et sta bs=2 sw=4 :*/
+/* vim: set et sta bs=2 sw=4 ft=css :*/
 /* This is SCSS.  See sass-lang.com */
 #header {
   /* decrease header font-size */
@@ -38,7 +38,8 @@
       padding-bottom: 0; }
       #list > .rows > div > .bar .f, #list > .rows > div > .bar .u {
         background-size: 1px 18px;
-        /* for high DPI devices */ }
+        /* for high DPI devices */
+        height: 18px; }
     #list > .rows > div > .name {
       width: auto;
       left: 6px;
