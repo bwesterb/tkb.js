@@ -127,8 +127,8 @@ TKB.prototype.ui_refresh_rooms = function() {
         var room = this.rooms[i];
         var odd_or_even = odd ? 'odd' : 'even';
         var el = $("<div class='"+odd_or_even+"'><div class='bar'><div>"+
-                        "<div class='f'><div></div></div>"+
                         "<div class='u'><div></div></div>"+
+                        "<div class='f'><div></div></div>"+
                         "</div></div>"+
                         "<div class='name'>"+room+"</div>"+
                         "<div class='count'></div>"+
@@ -238,8 +238,7 @@ TKB.prototype.ui_update_rooms = function(rooms, effects) {
         var tick = 100.0 / this.maxPcsPerRoom;
         /* update .bar */
         var mod_f = {'width': (tick * free) + '%'};
-        var mod_u = {'width': (tick * used) + '%',
-                     'left': (tick * free) + '%'};
+        var mod_u = {'width': (tick * (used + free)) + '%'};
         if(effects) {
             el.find('.f').animate(mod_f);
             el.find('.u').animate(mod_u);
