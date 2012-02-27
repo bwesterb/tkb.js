@@ -16,6 +16,8 @@ Installing
 
 Changelog
 ---------
+* Fifth release
+  * Bugfix in schedule showing code
 * Fourth release
   * Highlights on updates
   * Fixed some animation glitches
