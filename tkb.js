@@ -35,8 +35,10 @@ function TKB() {
 TKB.prototype.setup_comet = function() {
     var that = this;
     /* TODO we should not hardcode this */
-    this.comet = new joyceCometClient({
-        'host': tkbConfig.host})
+    var cometConfig = {};
+    if(tkbConfig.hasOwnProperty('host')) cometConfig.host = tkbConfig.host;
+    if(tkbConfig.hasOwnProperty('port')) cometConfig.port = tkbConfig.port;
+    this.comet = new joyceCometClient(cometConfig);
     this.channel = this.comet.create_channel({
         'message': function(msg) {
             var t = msg.type;
