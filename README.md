@@ -19,7 +19,6 @@ Changelog
 * Fifth release
   * Bundle and minify all javascript into one file.
     Loading will be a lot faster on mobiles.
-  * ...
 * Fourth release
   * Highlights on updates
   * Fixed some animation glitches
