@@ -1,0 +1,1 @@
+typeof window.console=="undefined"&&(console={},console.log=console.error=console.warn=function(a){});

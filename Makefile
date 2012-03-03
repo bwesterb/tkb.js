@@ -1,4 +1,5 @@
 JS_ORDER := js/jquery-1.7.1.ugly.js \
+	    js/dummyConsole.ugly.js \
 	    js/json2-2011-11-18.ugly.js \
 	    js/jquery.ui.core-1.8.18.ugly.js \
 	    js/jquery.effects.core-1.8.18.ugly.js \
