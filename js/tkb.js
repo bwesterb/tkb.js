@@ -146,7 +146,7 @@ TKB.prototype.ui_refresh_rooms = function() {
 TKB.prototype.ui_update_schedule = function() {
     var that = this;
     var current_date = new Date();
-    var current_time = [current_date.getHours(), current_date.getSeconds()];
+    var current_time = [current_date.getHours(), current_date.getMinutes()];
     /* compares two time pair.  A time pair (3,23) represents the time 3:23 */
     var timeLeq = function(x,y) {
         if (x[0] != y[0])
