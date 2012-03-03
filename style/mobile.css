@@ -9,7 +9,7 @@
     font-size: 14pt; }
   #header > #logo {
     width: 49px;
-    background-image: url("ru-mobile.png");
+    background-image: url("../img/ru-mobile.png");
     background-size: 47px 60px;
     /* required double DPI devices*/ }
 

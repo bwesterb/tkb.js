@@ -36,7 +36,7 @@ body {
     width: 345px;
     height: 60px;
     background-repeat: no-repeat;
-    background-image: url("ru.png"); }
+    background-image: url("../img/ru.png"); }
 
 /* The main stuff */
 #list {
@@ -68,7 +68,7 @@ body {
     /* A row in the table */ }
     #list > .rows .loading {
       width: 100%;
-      background: url("loading.gif") center center no-repeat;
+      background: url("../img/loading.gif") center center no-repeat;
       background-size: 21px 21px; }
     #list > .rows > div {
       position: relative;
@@ -108,7 +108,6 @@ body {
           /* ... or reserved later on */
           /* all bar bits */
           /* the big bits */
-          /* the small bits */
           /* color per bit */ }
           #list > .rows > div > .bar > div.resNow {
             background-color: black;
@@ -123,33 +122,14 @@ body {
             #list > .rows > div > .bar > div > .f > div, #list > .rows > div > .bar > div > .u > div {
               background-repeat: repeat-x;
               height: 36px; }
-          #list > .rows > div > .bar > div > .wf, #list > .rows > div > .bar > div > .lf, #list > .rows > div > .bar > div > .o, #list > .rows > div > .bar > div > .wu, #list > .rows > div > .bar > div > .wx, #list > .rows > div > .bar > div > .lu, #list > .rows > div > .bar > div > .lx, #list > .rows > div > .bar > div > .x {
-            top: 36px;
-            /* height: 1px; */ }
           #list > .rows > div > .bar > div > .f {
             background-color: #118d01; }
             #list > .rows > div > .bar > div > .f > div {
-              background-image: url("bar-green.png"); }
+              background-image: url("../img/bar-green.png"); }
           #list > .rows > div > .bar > div > .u {
             background-color: #be311a; }
             #list > .rows > div > .bar > div > .u > div {
-              background-image: url("bar-red.png"); }
-          #list > .rows > div > .bar > div > .wf {
-            background-color: blue; }
-          #list > .rows > div > .bar > div > .lf {
-            background-color: yellow; }
-          #list > .rows > div > .bar > div > .o {
-            background-color: black; }
-          #list > .rows > div > .bar > div > .wu {
-            background-color: blue; }
-          #list > .rows > div > .bar > div > .wx {
-            background-color: darkblue; }
-          #list > .rows > div > .bar > div > .lu {
-            background-color: yellow; }
-          #list > .rows > div > .bar > div > .lx {
-            background-color: orange; }
-          #list > .rows > div > .bar > div > .x {
-            background-color: gray; }
+              background-image: url("../img/bar-red.png"); }
 
 #footer {
   text-align: center;

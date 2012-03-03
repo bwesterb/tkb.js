@@ -11,9 +11,21 @@
         </script>
         <script type="text/javascript" src="config.js">
         </script>
-        <script type="text/javascript" src="js/bundle.ugly.js">
+        <script type="text/javascript" src="js/jquery-1.7.1.js">
         </script>
-        <link rel="stylesheet" type="text/css" href="style/screen.min.css">
+        <script type="text/javascript" src="js/json-2-2011-11-18.js">
+        </script>
+        <script type="text/javascript" src="js/jquery-ui.core-1.8.18.js">
+        </script>
+        <script type="text/javascript" src="js/jquery.effects.core-1.8.18.js">
+        </script>
+        <script type="text/javascript"
+             src="js/jquery.effects.highlight-1.8.18.js"></script>
+        <script type="text/javascript" src="js/joyceCometClient.js">
+        </script>
+        <script type="text/javascript" src="js/tkb.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="style/screen.css">
 
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +35,7 @@
             var ua = $.browser;
             if (!ua.mozilla || ua.version.slice(0,2) != "1.") {
                 var link = $('<link rel="stylesheet" '+
-                            'type="text/css" href="style/mobile.min.css"'+
+                            'type="text/css" href="style/mobile.css"'+
                             'media="screen and (max-width: 640px)">');
                 $('head').append(link);
             }
@@ -49,7 +61,7 @@
             <a href="http://tk.science.ru.nl/">tk.science.ru.nl</a> &middot;
             <a href="http://github.com/bwesterb/tkb.js"
                 >github.com/bwesterb/tkb.js</a> &middot;
-            v5
+            v4
         </div>
     </body>
 </html>

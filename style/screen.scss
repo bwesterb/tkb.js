@@ -56,7 +56,7 @@ body {
         height: 60px;
         background: {
             repeat: no-repeat;
-            image: url('ru.png');
+            image: url('../img/ru.png');
         }
     }
 }
@@ -102,7 +102,7 @@ body {
         /* the loading indicator */
         .loading {
             width: 100%;
-            background: url("loading.gif") center center no-repeat;
+            background: url("../img/loading.gif") center center no-repeat;
             background-size: 21px 21px;
         }
 
@@ -184,11 +184,11 @@ body {
                     /* color per bit */
                     > .f  {
                         background-color: $bar_green;
-                        > div { background-image: url('bar-green.png'); }
+                        > div { background-image: url('../img/bar-green.png'); }
                     }
                     > .u  {
                         background-color: $bar_red;
-                        > div { background-image: url('bar-red.png'); }
+                        > div { background-image: url('../img/bar-red.png'); }
                     }
                 }
             }
