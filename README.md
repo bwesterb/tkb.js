@@ -16,6 +16,9 @@ Installing
 
 Changelog
 ---------
+* Seventh release
+  * Hide addressbar on iOS devices.
+  * ...
 * Sixth release
   * Bundle and minify all javascript into one file.
     Loading will be a lot faster on mobiles.

@@ -21,6 +21,8 @@ function TKB() {
 
     /* other */
     this.schedTimeout = null;   /* timeout handle for schedule timeout */
+    this.firstOccupation = true;/* first occupation message has yet to be
+                                 * received. */
 
     /* message type to handler function map */
     this.msg_map = {
@@ -71,6 +73,14 @@ TKB.prototype.msg_occupation = function(msg) {
     this.occupationVersion = msg.version;
     /* ... and refresh UI */
     this.ui_update_rooms(this.rooms, false);
+    /* Is this the first occupation message?  Then this is a short moment
+     * after the pageload */
+    if (this.firstOccupation) {
+        this.firstOccupation = false;
+        /* Scroll (almost) to the top of the page. This will hide the addressbar
+         * on an iOS device, if the page is taller than the screen. */
+        window.scrollTo(0,1);
+    }
 };
 
 TKB.prototype.msg_occupation_update = function(msg) {
