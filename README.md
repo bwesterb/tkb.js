@@ -18,6 +18,7 @@ Changelog
 ---------
 * Seventh release
   * Hide addressbar on iOS devices.
+  * A wee bit better javascript compression.
   * ...
 * Sixth release
   * Bundle and minify all javascript into one file.

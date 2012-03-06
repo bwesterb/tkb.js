@@ -14,7 +14,7 @@ js/bundle.ugly.js: $(JS_ORDER)
 	cat $(JS_ORDER) > $@
 
 js/%.ugly.js: js/%.js
-	uglifyjs -nc < $< > $@
+	uglifyjs -nc < $< > $@ --unsafe
 
 style/%.css: style/%.scss
 	scss $<:$@
