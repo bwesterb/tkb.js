@@ -15,6 +15,11 @@ $bar_green: #118d01;
 $cw_name: 150px;
 $cw_count: 100px;
 
+/* Do not show elements with mobile class */
+.mobile {
+    display: none;
+}
+
 /* Some small resets */
 *, body {
     padding: 0;

@@ -1,5 +1,13 @@
 /* vim: set et sta bs=2 sw=4 ft=css :*/
 /* This is SCSS.  See sass-lang.com */
+/* Show elements with mobile class */
+.mobile {
+  display: inherit; }
+
+/* And hide those with the screen tag */
+.screen {
+  display: none; }
+
 #header {
   /* decrease header font-size */
   /* change header logo */ }
@@ -46,10 +54,14 @@
       top: 2px; }
     #list > .rows > div > .count {
       top: 23px;
-      width: 70px; }
+      width: 70px;
+      right: 6px;
+      text-align: right; }
     #list > .rows > div > .sched {
-      left: 100px;
+      right: 8px;
+      left: auto;
       top: 5px;
-      font-size: 12pt; }
+      font-size: 12pt;
+      text-align: right; }
     #list > .rows > div > .name, #list > .rows > div > .count {
       font-size: 14pt; }

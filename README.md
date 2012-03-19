@@ -16,6 +16,10 @@ Installing
 
 Changelog
 ---------
+* Eigth release
+  * Show end time on reservations.
+  * Some small layout tweaks
+  * ...
 * Seventh release
   * Hide addressbar on iOS devices.
   * A wee bit better javascript compression.

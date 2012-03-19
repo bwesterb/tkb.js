@@ -144,7 +144,9 @@ TKB.prototype.ui_refresh_rooms = function() {
                         "</div></div>"+
                         "<div class='name'>"+room+"</div>"+
                         "<div class='count'></div>"+
-                        "<div class='sched'></div></div>");
+                        "<div class='sched'><span class='screen'></span>"+
+                            "<span class='mobile'></span></div>"+
+                        "</div>");
         this.roomToDom[room] = el;
         $('#list > .rows').append(el);
         odd = !odd;
@@ -198,13 +200,18 @@ TKB.prototype.ui_update_schedule = function() {
         var crit_time = null;
         if (neigh == null) {
             var txt = "";
+            var txt_short = "";
             var klass = null;
         } else if (neigh_is_now) {
             var txt = "gereserveerd tot "+timeToStr(neigh[1]);
+            var txt_short = "gereserveerd tot "+timeToStr(neigh[1]);
             var klass = 'resNow';
             crit_time = neigh[1];
         } else {
-            var txt = "gereserveerd vanaf  "+timeToStr(neigh[0]);
+            var txt = "gereserveerd vanaf  "+timeToStr(neigh[0])+
+                        " tot "+timeToStr(neigh[1]);
+            var txt_short = "gereserveerd "+timeToStr(neigh[0])+
+                        "&ndash;"+timeToStr(neigh[1]);
             var klass = 'resLater';
             crit_time = neigh[0];
         }
@@ -212,7 +219,8 @@ TKB.prototype.ui_update_schedule = function() {
                     || timeLeq(crit_time, min_crit_time)))
             min_crit_time = crit_time;
         /* set the text */
-        this.roomToDom[room].find('.sched').text(txt);
+        this.roomToDom[room].find('.sched > .screen').text(txt);
+        this.roomToDom[room].find('.sched > .mobile').html(txt_short);
         /* set class */
         var barInnerDiv = this.roomToDom[room].find('.bar > div');
         barInnerDiv.removeClass();

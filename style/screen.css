@@ -5,6 +5,10 @@
 /* colours */
 /* van www.ru.nl/huisstijl/basiselementen/kleuren/ */
 /* widths of columns */
+/* Do not show elements with mobile class */
+.mobile {
+  display: none; }
+
 /* Some small resets */
 *, body {
   padding: 0;
