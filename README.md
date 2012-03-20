@@ -16,6 +16,8 @@ Installing
 
 Changelog
 ---------
+* Ninth release
+  * Fix quirks-mode problem with IE 8
 * Eigth release
   * Show end time on reservations.
   * Some small layout tweaks
