@@ -27,6 +27,7 @@ function TKB() {
     /* message type to handler function map */
     this.msg_map = {
         'welcome': this.msg_welcome,
+        'tags': this.msg_tags,
         'occupation': this.msg_occupation,
         'roomMap': this.msg_roomMap,
         'schedule': this.msg_schedule,
@@ -40,8 +41,20 @@ TKB.prototype.setup_comet = function() {
     var cometConfig = {};
     if(tkbConfig.hasOwnProperty('host')) cometConfig.host = tkbConfig.host;
     if(tkbConfig.hasOwnProperty('port')) cometConfig.port = tkbConfig.port;
+    var tags = tkbConfig.hasOwnProperty('tags') ? tkbConfig.tags : null;
     this.comet = new joyceCometClient(cometConfig);
     this.channel = this.comet.create_channel({
+        'initial_messages': [
+                /* set our filter... */
+                {type: 'set_msgFilter',
+                 schedule: tags,
+                 occupation: tags,
+                 roomMap: tags},
+                /* ...and request the current roomMap, schedule and
+                 * occupation. */
+                {type: 'get_roomMap'},
+                {type: 'get_schedule'},
+                {type: 'get_occupation'}],
         'message': function(msg) {
             var t = msg.type;
             if(t in that.msg_map)
@@ -53,6 +66,10 @@ TKB.prototype.setup_comet = function() {
 
 TKB.prototype.run = function() {
     this.setup_comet();
+};
+
+TKB.prototype.msg_tags = function(msg) {
+    /* We do not really care. */
 };
 
 TKB.prototype.msg_welcome = function(msg) {
@@ -113,12 +130,12 @@ TKB.prototype.msg_roomMap = function(msg) {
     for (var room in this.roomMap) {
         this.rooms.push(room);
         this.maxPcsPerRoom = Math.max(this.maxPcsPerRoom,
-                                      this.roomMap[room].length);
-        for (var i = 0; i < this.roomMap[room].length; i++)
-            this.rroomMap[this.roomMap[room][i]] = room; 
+                                      this.roomMap[room][1].length);
+        for (var i = 0; i < this.roomMap[room][1].length; i++)
+            this.rroomMap[this.roomMap[room][1][i]] = room;
     }
     this.rooms.sort(function(x,y) {
-        return that.roomMap[y].length -  that.roomMap[x].length;
+        return that.roomMap[y][1].length -  that.roomMap[x][1].length;
     });
     /* ... and update UI. */
     this.ui_refresh_rooms(this.rooms);
@@ -136,7 +153,7 @@ TKB.prototype.ui_refresh_rooms = function() {
                         "<div class='u'><div></div></div>"+
                         "<div class='f'><div></div></div>"+
                         "</div></div>"+
-                        "<div class='name'>"+room+"</div>"+
+                        "<div class='name'>"+this.roomMap[room][0]+"</div>"+
                         "<div class='count'></div>"+
                         "<div class='sched'><span class='screen'></span>"+
                             "<span class='mobile'></span></div>"+
@@ -243,8 +260,8 @@ TKB.prototype.ui_update_rooms = function(rooms, effects) {
         /* calculate usage */
         var lut = {'wf': 0, 'lf': 0, 'o': 0, 'wu': 0, 'wx': 0, 'lu': 0,
                             'lx': 0, 'x': 0};
-        for (var j = 0; j < this.roomMap[room].length; j++) {
-            var key = this.occupation[this.roomMap[room][j]];
+        for (var j = 0; j < this.roomMap[room][1].length; j++) {
+            var key = this.occupation[this.roomMap[room][1][j]];
             lut[key]++;
         }
         var free = lut.wf + lut.lf + lut.o;

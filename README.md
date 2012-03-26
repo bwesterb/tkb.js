@@ -16,6 +16,9 @@ Installing
 
 Changelog
 ---------
+* Tenth release
+  * Update to tkbd protocol version 1.
+  * ...
 * Ninth release
   * Fix quirks-mode problem with IE 8
 * Eigth release
