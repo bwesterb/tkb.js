@@ -84,13 +84,7 @@ TKB.prototype.msg_occupation = function(msg) {
 };
 
 TKB.prototype.msg_occupation_update = function(msg) {
-    /* We received updates to the occupation.  Check if we missed some
-     * updates in between. */
-    if(msg.version != this.occupationVersion + 1) {
-        log.warn('Apparently we missed some updates; resynching');
-        this.comet.send_message('get_occupation');
-        return;
-    }
+    /* TODO check if we missed a message. */
     /* Store ... */
     this.occupationVersion++;
     var roomSet = {};   /* set of rooms with pc's occ. changed */
