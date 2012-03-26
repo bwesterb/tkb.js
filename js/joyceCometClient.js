@@ -4,7 +4,7 @@ var joyceCometClient = (function(){
 var channel = function(client, settings) {
     this.client = client;
     this.token = null;
-    this.queue_out = [];
+    this.queue_out = settings.initial_messages ? settings.initial_messages : [];
     this.pending_requests = 0;
 
     this.message = 'message' in settings ? settings.message : function(){};
@@ -22,12 +22,9 @@ channel.prototype._request = function(interrupt) {
        (!interrupt && this.pending_requests >= 1))
         return;
     this.pending_requests++;
-    var data = [];
-    if(this.token != null) {
-        data.push(this.token);
-        $.merge(data, this.queue_out);
-        this.queue_out = [];
-    }
+    var data = [this.token];
+    $.merge(data, this.queue_out);
+    this.queue_out = [];
     var url = 'http://'+this.client.host+':'+this.client.port.toString()+
             this.client.path;
     var that = this;
