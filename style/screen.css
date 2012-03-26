@@ -40,7 +40,7 @@ body {
     width: 345px;
     height: 60px;
     background-repeat: no-repeat;
-    background-image: url("../img/ru.png"); }
+    background-image: url("../img/ru.png?v=10"); }
 
 /* The main stuff */
 #list {
@@ -72,7 +72,7 @@ body {
     /* A row in the table */ }
     #list > .rows .loading {
       width: 100%;
-      background: url("../img/loading.gif") center center no-repeat;
+      background: url("../img/loading.gif?v=10") center center no-repeat;
       background-size: 21px 21px; }
     #list > .rows > div {
       position: relative;
@@ -129,11 +129,11 @@ body {
           #list > .rows > div > .bar > div > .f {
             background-color: #118d01; }
             #list > .rows > div > .bar > div > .f > div {
-              background-image: url("../img/bar-green.png"); }
+              background-image: url("../img/bar-green.png?v=10"); }
           #list > .rows > div > .bar > div > .u {
             background-color: #be311a; }
             #list > .rows > div > .bar > div > .u > div {
-              background-image: url("../img/bar-red.png"); }
+              background-image: url("../img/bar-red.png?v=10"); }
 
 #footer {
   text-align: center;

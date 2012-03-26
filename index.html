@@ -6,9 +6,9 @@
         </script>
         <script type="text/javascript" src="config.js">
         </script>
-        <script type="text/javascript" src="js/bundle.ugly.js">
+        <script type="text/javascript" src="js/bundle.ugly.js?v=10">
         </script>
-        <link rel="stylesheet" type="text/css" href="style/screen.min.css">
+        <link rel="stylesheet" type="text/css" href="style/screen.min.css?v=10">
 
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,7 @@
             var ua = $.browser;
             if (!ua.mozilla || ua.version.slice(0,2) != "1.") {
                 var link = $('<link rel="stylesheet" '+
-                            'type="text/css" href="style/mobile.min.css"'+
+                            'type="text/css" href="style/mobile.min.css?v=10"'+
                             'media="screen and (max-width: 640px)">');
                 $('head').append(link);
             }
