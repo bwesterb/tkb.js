@@ -19,7 +19,6 @@ Changelog
 * Tenth release
   * Update to tkbd protocol version 1.
   * Bars are brighter thanks to [Judith](http://jd7h.com)
-  * ...
 * Ninth release
   * Fix quirks-mode problem with IE 8
 * Eigth release
