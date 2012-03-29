@@ -29,11 +29,13 @@ channel.prototype._request = function(interrupt) {
             this.client.path;
     var that = this;
     $.ajax({'url': url,
-        'type': 'POST',
         'jsonp': 'c',
         'data': {
             'm': JSON.stringify(data)
         },
+        /* This forces a JSONP request.  This *might* prevent the "Throbber of
+         * Doom" on some webbrowsers.  See issue #2. */
+        'crossDomain': true,
         'dataType': 'jsonp',
         'error': function(xhr, textStatus, errorThrown) {
             that.on_error(xhr, textStatus, errorThrown);
