@@ -215,15 +215,17 @@ TKB.prototype.ui_update_schedule = function() {
             var txt_short = "";
             var klass = null;
         } else if (nigh_is_now) {
-            var txt = "gereserveerd tot "+timeToStr(nigh[1]);
+            var txt = "gereserveerd tot "+timeToStr(nigh[1])+
+                        " voor “" + nigh[2] + "”";
             var txt_short = "gereserveerd tot "+timeToStr(nigh[1]);
             var klass = 'resNow';
             crit_time = nigh[1];
         } else {
             var txt = "gereserveerd vanaf  "+timeToStr(nigh[0])+
-                        " tot "+timeToStr(nigh[1]);
+                        " tot "+timeToStr(nigh[1]) +
+                        " voor “" + nigh[2] + "”";
             var txt_short = "gereserveerd "+timeToStr(nigh[0])+
-                        "&ndash;"+timeToStr(nigh[1]);
+                        "–"+timeToStr(nigh[1]);
             var klass = 'resLater';
             crit_time = nigh[0];
         }
