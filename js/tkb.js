@@ -41,6 +41,7 @@ TKB.prototype.setup_comet = function() {
     var cometConfig = {};
     if(tkbConfig.hasOwnProperty('host')) cometConfig.host = tkbConfig.host;
     if(tkbConfig.hasOwnProperty('port')) cometConfig.port = tkbConfig.port;
+    if(tkbConfig.hasOwnProperty('path')) cometConfig.path = tkbConfig.path;
     var tags = tkbConfig.hasOwnProperty('tags') ? tkbConfig.tags : null;
     this.comet = new joyceCometClient(cometConfig);
     this.channel = this.comet.create_channel({
