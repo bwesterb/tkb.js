@@ -193,39 +193,39 @@ TKB.prototype.ui_update_schedule = function() {
         if (!sched) /* there are no courses scheduled */
             continue;
         /* find next or current course */
-        var neigh = null;
-        var neigh_is_now = null;
+        var nigh = null;
+        var nigh_is_now = null;
         for (var j = 0; j < sched.length; j++) {
             if (timeLeq(sched[j][0], current_time) &&
                     timeLeq(current_time, sched[j][1])) {
-                neigh = sched[j];
-                neigh_is_now = true;
+                nigh = sched[j];
+                nigh_is_now = true;
                 break;
             }
             if (timeLeq(current_time, sched[j][0]) &&
-                    (neigh == null || timeLeq(sched[j][0], neigh))) {
-                neigh = sched[j];
-                neigh_is_now = false;
+                    (nigh == null || timeLeq(sched[j][0], nigh))) {
+                nigh = sched[j];
+                nigh_is_now = false;
             }
         }
         /* create the text */
         var crit_time = null;
-        if (neigh == null) {
+        if (nigh == null) {
             var txt = "";
             var txt_short = "";
             var klass = null;
-        } else if (neigh_is_now) {
-            var txt = "gereserveerd tot "+timeToStr(neigh[1]);
-            var txt_short = "gereserveerd tot "+timeToStr(neigh[1]);
+        } else if (nigh_is_now) {
+            var txt = "gereserveerd tot "+timeToStr(nigh[1]);
+            var txt_short = "gereserveerd tot "+timeToStr(nigh[1]);
             var klass = 'resNow';
-            crit_time = neigh[1];
+            crit_time = nigh[1];
         } else {
-            var txt = "gereserveerd vanaf  "+timeToStr(neigh[0])+
-                        " tot "+timeToStr(neigh[1]);
-            var txt_short = "gereserveerd "+timeToStr(neigh[0])+
-                        "&ndash;"+timeToStr(neigh[1]);
+            var txt = "gereserveerd vanaf  "+timeToStr(nigh[0])+
+                        " tot "+timeToStr(nigh[1]);
+            var txt_short = "gereserveerd "+timeToStr(nigh[0])+
+                        "&ndash;"+timeToStr(nigh[1]);
             var klass = 'resLater';
-            crit_time = neigh[0];
+            crit_time = nigh[0];
         }
         if(crit_time != null && (min_crit_time == null
                     || timeLeq(crit_time, min_crit_time)))
