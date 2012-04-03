@@ -16,6 +16,10 @@ Installing
 
 Changelog
 ---------
+* Eleventh release
+  * Add event descriptions
+  * Fix custom paths for the API
+  * Some small fixes
 * Tenth release
   * Update to tkbd protocol version 1.
   * Bars are brighter thanks to [Judith](http://jd7h.com)
