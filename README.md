@@ -16,6 +16,9 @@ Installing
 
 Changelog
 ---------
+* Twelfth release
+  * Fix another bug in the schedule showing code [#4]
+  * ...
 * Eleventh release
   * Add event descriptions
   * Fix custom paths for the API

@@ -203,7 +203,7 @@ TKB.prototype.ui_update_schedule = function() {
                 break;
             }
             if (timeLeq(current_time, sched[j][0]) &&
-                    (nigh == null || timeLeq(sched[j][0], nigh))) {
+                    (nigh == null || timeLeq(sched[j][0], nigh[0]))) {
                 nigh = sched[j];
                 nigh_is_now = false;
             }
