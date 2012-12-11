@@ -1,1 +1,1 @@
-typeof window.console=="undefined"&&(console={},console.log=console.error=console.warn=function(a){});
+window.console===void 0&&(console={},console.log=console.error=console.warn=function(){});
