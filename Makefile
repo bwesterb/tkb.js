@@ -14,10 +14,13 @@ js/bundle.ugly.js: $(JS_ORDER)
 	cat $(JS_ORDER) > $@
 
 js/%.ugly.js: js/%.js
-	uglifyjs -nc < $< > $@ --unsafe
+	uglifyjs $< -o $@ -m -c
 
 style/%.css: style/%.scss
 	scss $<:$@
 
 style/%.min.css: style/%.scss
 	scss $<:$@ --style compressed
+
+clean:
+	rm -f $(JS_ORDER) style/*.min.css js/bundle.ugly.js
