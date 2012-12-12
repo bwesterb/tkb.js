@@ -171,11 +171,13 @@ TKB.prototype.ui_update_schedule = function() {
     var that = this;
     var current_date = new Date();
     var current_time = [current_date.getHours(), current_date.getMinutes()];
+    /* compares two time pairs.  A time pair (3,23) represents the time 3:23 */
+    var timeCmp = function(x,y) {
+        return (y[0]*60 + y[1]) - (x[0]*60 + x[1]);
+    };
     /* compares two time pair.  A time pair (3,23) represents the time 3:23 */
     var timeLeq = function(x,y) {
-        if (x[0] != y[0])
-            return x[0] <= y[0];
-        return x[1] <= y[1];
+        return timeCmp(x,y) >= 0;
     };
     /* converts a time pair to a string */
     var timeToStr = function(x) {
@@ -192,42 +194,46 @@ TKB.prototype.ui_update_schedule = function() {
         var sched = this.schedule[room];
         if (!sched) /* there are no courses scheduled */
             continue;
-        /* find next or current course */
-        var nigh = null;
-        var nigh_is_now = null;
-        for (var j = 0; j < sched.length; j++) {
-            if (timeLeq(sched[j][0], current_time) &&
-                    timeLeq(current_time, sched[j][1])) {
-                nigh = sched[j];
-                nigh_is_now = true;
-                break;
-            }
-            if (timeLeq(current_time, sched[j][0]) &&
-                    (nigh == null || timeLeq(sched[j][0], nigh[0]))) {
-                nigh = sched[j];
-                nigh_is_now = false;
-            }
-        }
+        /* Sort scheduled courses by starting time */
+        sched.sort(timeCmp);
+        var j_start;    /* the index of the first relevant course */
+        var j_end;      /* the index of the last relevant course */
+        /* Find the current course or the first coming. */
+        for (j_start = 0; j_start < sched.length
+                    && timeLeq(sched[j_start][1], current_time); j_start++);
+        /* Find all courses that follow this course, allowing a gap of 15m. */
+        for (j_end = j_start; j_end + 1 < sched.length
+                    && timeCmp(sched[j_end][1], sched[j_end + 1][0]) < 15;
+                            j_end++);
         /* create the text */
         var crit_time = null;
-        if (nigh == null) {
-            var txt = "";
-            var txt_short = "";
-            var klass = null;
-        } else if (nigh_is_now) {
-            var txt = "gereserveerd tot "+timeToStr(nigh[1])+
-                        " voor “" + nigh[2] + "”";
-            var txt_short = "gereserveerd tot "+timeToStr(nigh[1]);
-            var klass = 'resNow';
-            crit_time = nigh[1];
+        var txt = "";
+        var txt_short = "";
+        var klass = null;
+        if (j_start == sched.length) {
+        } else if (timeLeq(sched[j_start][0], current_time)) {
+            txt_short = "gereserveerd tot "+timeToStr(sched[j_end][1]);
+            klass = 'resNow';
+            crit_time = sched[j_start][1];
+            if (j_end == j_start)
+                txt = "gereserveerd tot "+timeToStr(sched[j_start][1])+
+                            " voor “" + sched[j_start][2] + "”";
+            else
+                txt = "gereserveerd tot "+timeToStr(sched[j_end][1])+
+                            ". Nu: “" + sched[j_start][2]+ "”";
         } else {
-            var txt = "gereserveerd vanaf  "+timeToStr(nigh[0])+
-                        " tot "+timeToStr(nigh[1]) +
-                        " voor “" + nigh[2] + "”";
-            var txt_short = "gereserveerd "+timeToStr(nigh[0])+
-                        "–"+timeToStr(nigh[1]);
-            var klass = 'resLater';
-            crit_time = nigh[0];
+            txt_short = "gereserveerd "+timeToStr(sched[j_start][0])+
+                        "–"+timeToStr(sched[j_end][1]);
+            if (j_end == j_start)
+                txt = "gereserveerd vanaf  "+timeToStr(sched[j_start][0])+
+                            " tot "+timeToStr(sched[j_start][1]) +
+                            " voor “" + sched[j_start][2] + "”";
+            else
+                txt = "gereserveerd vanaf  "+timeToStr(sched[j_start][0])+
+                            " tot "+timeToStr(sched[j_end][1]) +
+                            ". Eerst: “" + sched[j_start][2] + "”";
+            klass = 'resLater';
+            crit_time = sched[j_start][0];
         }
         if(crit_time != null && (min_crit_time == null
                     || timeLeq(crit_time, min_crit_time)))
