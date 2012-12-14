@@ -195,7 +195,7 @@ TKB.prototype.ui_update_schedule = function() {
         if (!sched) /* there are no courses scheduled */
             continue;
         /* Sort scheduled courses by starting time */
-        sched.sort(timeCmp);
+        sched.sort(function(e1, e2) { return -timeCmp(e1[0], e2[0]) });
         var j_start;    /* the index of the first relevant course */
         var j_end;      /* the index of the last relevant course */
         /* Find the current course or the first coming. */
