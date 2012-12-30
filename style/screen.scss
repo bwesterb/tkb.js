@@ -1,19 +1,7 @@
 /* vim: set et sta bs=2 sw=4 ft=css :*/
 /* This is SCSS.  See sass-lang.com */
 
-/* variables 
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-/* colours */
-$unired: #be311a; /* van www.ru.nl/huisstijl/basiselementen/kleuren/ */
-$midgray: #e0e0e0;
-$lightgray: #f5f5f5;
-$bar_red: #be311a;
-$bar_green: #118d01;
-
-/* widths of columns */
-$cw_name: 150px;
-$cw_count: 100px;
+@import "common";
 
 /* Do not show elements with mobile class */
 .mobile {
@@ -206,17 +194,36 @@ body {
 }
 
 #footer {
-    text-align: center;
-    font-size: 10pt;
-    font-weight: lighter;
-    padding-bottom: 10px;
+    font: {
+        size: 12pt;
+        weight: lighter;
+    }
+    padding: {
+        left: 50%;
+        top: 20px;
+        bottom: 20px;
+    }
 
-    > a {
-        color: inherit;
-        text-decoration: none;
+    > ul {
+        width: $footer_width;
+        margin-left: -$footer_width / 2;
 
-        &:hover {
-            text-decoration: underline;
+        > li {
+            display: inline-block;
+            color: $darkergray;
+            list-style-type: none;
+            line-height: 150%;
+            text-align: center;
+            width: floor($footer_width / $footer_count) - $footer_count*1px;
+
+            > a {
+                text-decoration: none;
+                color: inherit;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
     }
 }

@@ -19,6 +19,7 @@ Changelog
 * Thirteenth release
   * If reservations of a room follow eachother within 15 minutes, show the
     end time of the last reservation.
+  * New footer with credits
   * ...
 * Twelfth release
   * Fix another bug in the schedule showing code [#4]

@@ -1,6 +1,8 @@
 /* vim: set et sta bs=2 sw=4 ft=css :*/
 /* This is SCSS.  See sass-lang.com */
 
+@import "common";
+
 /* Show elements with mobile class */
 .mobile {
     display: inherit;
@@ -97,5 +99,16 @@
                 font-size: 14pt;
             }
         }
+    }
+}
+
+#footer > ul {
+    margin-left: -$mobile_footer_width/2;
+    width: $mobile_footer_width;
+
+    > li {
+        padding-top: 30px;
+        display: block;
+        width: $mobile_footer_width;
     }
 }

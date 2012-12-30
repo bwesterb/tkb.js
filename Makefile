@@ -16,10 +16,10 @@ js/bundle.ugly.js: $(JS_ORDER)
 js/%.ugly.js: js/%.js
 	uglifyjs $< -o $@ -m -c
 
-style/%.css: style/%.scss
+style/%.css: style/%.scss style/common.scss
 	scss $<:$@
 
-style/%.min.css: style/%.scss
+style/%.min.css: style/%.scss style/common.scss
 	scss $<:$@ --style compressed
 
 clean:

@@ -1,9 +1,10 @@
 /* vim: set et sta bs=2 sw=4 ft=css :*/
 /* This is SCSS.  See sass-lang.com */
-/* variables 
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* vim: set et sta bs=2 sw=4 ft=css :*/
+/* This is SCSS.  See sass-lang.com */
 /* colours */
 /* van www.ru.nl/huisstijl/basiselementen/kleuren/ */
+/* width of footer */
 /* widths of columns */
 /* Do not show elements with mobile class */
 .mobile {
@@ -136,12 +137,23 @@ body {
               background-image: url("../img/bar-red.png?v=10"); }
 
 #footer {
-  text-align: center;
-  font-size: 10pt;
+  font-size: 12pt;
   font-weight: lighter;
-  padding-bottom: 10px; }
-  #footer > a {
-    color: inherit;
-    text-decoration: none; }
-    #footer > a:hover {
-      text-decoration: underline; }
+  padding-left: 50%;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  #footer > ul {
+    width: 640px;
+    margin-left: -320px; }
+    #footer > ul > li {
+      display: inline-block;
+      color: #b0b0b0;
+      list-style-type: none;
+      line-height: 150%;
+      text-align: center;
+      width: 156px; }
+      #footer > ul > li > a {
+        text-decoration: none;
+        color: inherit; }
+        #footer > ul > li > a:hover {
+          text-decoration: underline; }
